@@ -1,12 +1,24 @@
-<button (click)="newBox()">Add new Box</button>
-<button (click)="toggleHandleKeyboardEvent()">Toggle Keyboard Listener</button>
-Keyboard Controls : {{ keyboardListening ? "Active" : "Inactive" }}
+<div class="center topBar">
+  <button class="button button-hover" (click)="newBox()">Add new Box</button>
+  <button class="button button-hover" (click)="toggleHandleKeyboardEvent()">
+    Toggle Keyboard Listener
+  </button>
+  <span
+    class="button"
+    [ngClass]="{
+      'btn-inactive': !keyboardListening,
+      'btn-active': keyboardListening
+    }"
+  >
+    Keyboard Controls : {{ keyboardListening ? "Active" : "Inactive" }}
+  </span>
+</div>
 <div
   [style.height.px]="limit.height"
   [style.width.px]="limit.width"
   [style.top.px]="limit.y"
   [style.left.px]="limit.x"
-  style="position: fixed; background-color: red"
+  style="position: fixed; border: 5px solid red"
 >
   <div
     *ngFor="let box of boxes"

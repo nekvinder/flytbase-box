@@ -11,9 +11,9 @@ export class AppComponent {
   // Configurations
   jumpConstant = 20;
   limit = {
-    x: 50,
-    y: 50,
-    height: 800,
+    x: 10,
+    y: 100,
+    height: 600,
     width: 1000,
   };
 
@@ -58,7 +58,7 @@ export class AppComponent {
           if (['ArrowDown', 's', 'S'].includes(event.key))
             this.selectedBox.y = Math.min(
               this.selectedBox.y + this.jumpConstant,
-              this.limit.y + this.limit.height - this.selectedBox.height - 2
+              this.limit.y + this.limit.height - this.selectedBox.height
             );
           if (['ArrowLeft', 'a', 'A'].includes(event.key))
             this.selectedBox.x = Math.max(
@@ -68,7 +68,7 @@ export class AppComponent {
           if (['ArrowRight', 'd', 'D'].includes(event.key))
             this.selectedBox.x = Math.min(
               this.selectedBox.x + this.jumpConstant,
-              this.limit.x + this.limit.width - this.selectedBox.width - 2
+              this.limit.x + this.limit.width - this.selectedBox.width
             );
 
           if (['Delete'].includes(event.key))

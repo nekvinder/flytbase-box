@@ -1,0 +1,27 @@
+<button (click)="newBox()">Add new Box</button>
+<button (click)="toggleHandleKeyboardEvent()">Toggle Keyboard Listener</button>
+Keyboard Controls : {{ keyboardListening ? "Active" : "Inactive" }}
+<div
+  [style.height.px]="limit.height"
+  [style.width.px]="limit.width"
+  [style.top.px]="limit.y"
+  [style.left.px]="limit.x"
+  style="position: fixed; background-color: red"
+>
+  <div
+    *ngFor="let box of boxes"
+    [style.height.px]="box.height"
+    [style.width.px]="box.width"
+    [style.top.px]="box.y"
+    [style.left.px]="box.x"
+    [style.border-width.px]="box.isSelected ? '1' : '0'"
+    [style.border-style]="'solid'"
+    [style.border-color]="'black'"
+    [style.background-color]="box.isSelected ? 'teal' : 'lightblue'"
+    [style.z-index]="box.id"
+    (click)="setSelected(box)"
+    style="position: fixed; text-align: center"
+  >
+    {{ box.id }}
+  </div>
+</div>
